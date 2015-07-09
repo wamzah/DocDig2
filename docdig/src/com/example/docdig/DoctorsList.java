@@ -19,6 +19,7 @@ public class DoctorsList extends ListActivity {
 	String speciality;
 	String gender;
 	String hosp;
+	String name;
 	DoctorListAdapter DocAdapter;
 
 	@Override
@@ -33,12 +34,22 @@ public class DoctorsList extends ListActivity {
 		 
 		Intent intent=getIntent();
 		speciality=intent.getExtras().getString("speciality");
-		gender=intent.getExtras().getString("gender");
-		hosp=intent.getExtras().getString("hospital");
-		DatabaseHandler db=new DatabaseHandler(this);
-		db.getWritableDatabase();
-		doctorList=db.getAllContacts(speciality,gender,hosp);
-		db.close(); 		 					
+		if(!speciality.equals("None"))
+		{
+			gender=intent.getExtras().getString("gender");
+			hosp=intent.getExtras().getString("hospital");
+			DatabaseHandler db=new DatabaseHandler(this);
+			db.getWritableDatabase();		
+			doctorList=db.getAllContacts(speciality,gender,hosp);			
+			db.close();
+		}
+		else 
+		{
+			//Bundle bundle = getIntent().getExtras();			
+			doctorList = getIntent().getParcelableArrayListExtra("doctor");
+		}
+		 		 				
+		
 		for(int i=0;i<doctorList.size();i++)
 		{
 			nameList.add(doctorList.get(i).getname());

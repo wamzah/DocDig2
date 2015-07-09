@@ -85,6 +85,36 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	        }	        
 	        return null;
 	    }	    	    
+	    
+	    public List<Doctor> getContact(String name,String job,String gender) {	        
+	    	List<Doctor> doctorList = new ArrayList<Doctor>();	        
+	        SQLiteDatabase db = this.getWritableDatabase();
+	        
+	       String selectQuery = "SELECT  *"+
+	    		   " FROM " + TABLE_CONTACTS + " where " + KEY_NAME + 
+	        		" = '" + name + "' and " +KEY_JOB + "= '"+job+"' and "
+	        		+ KEY_GENDER+ "= '"+gender+"' ";	 	       
+	        Cursor cursor = db.rawQuery(selectQuery, null);	 
+	        // looping through all rows and adding to list
+	        if(cursor.moveToFirst())
+	        {
+	        	while (cursor != null)
+		        { 	        		    		        	
+	                Doctor doc = new Doctor(cursor.getString(0), cursor.getString(1),cursor.getString(2),
+	    	        cursor.getDouble(3),cursor.getDouble(4),cursor.getString(5),
+	    	        cursor.getString(6),cursor.getString(7));	                	                	               		          
+	                doctorList.add(doc);
+	                if(cursor.isLast())
+	                	break;
+	                if(!cursor.moveToNext())
+	                	break;		        
+		        }
+		        return doctorList;	        		        	
+	        }
+	        
+	        return null;
+	    }
+	    
 	    //get doctor with same name
 	    public List<Doctor> getContact(String name) {	        
 	    	List<Doctor> doctorList = new ArrayList<Doctor>();	        

@@ -29,7 +29,18 @@ public class SelectedDoctor extends ActionBarActivity {
 		ActionBar actionBar=getSupportActionBar();
 		actionBar.hide();
 		setContentView(R.layout.activity_selected_doctor);		
-		
+	
+  	    //setting home button. it directs to dashboard
+  	    Button homebutton=(Button)findViewById(R.id.button2);
+  	  homebutton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent i=new Intent(SelectedDoctor.this,DashboardActivity.class);
+				startActivity(i);
+			}
+		});
 		//call = (Button)findViewById(R.id.button2);
 		name=(TextView)findViewById(R.id.textView1);
 		spec=(TextView)findViewById(R.id.textView3);		

@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -148,17 +149,26 @@ List<String> names;
 		searchGender=(String)spinnerGender.getSelectedItem();
 		searchJob = (String) spinnerDoctor.getSelectedItem();
 		searchName = textView.getText().toString();
-		Toast.makeText(this, searchJob+" "+searchName, Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, searchName, Toast.LENGTH_SHORT).show();
 		DatabaseHandler db=new DatabaseHandler(this);
 		db.getReadableDatabase();	        		
         //doctorList=db.getAllContacts(searchJob,searchGender,searchName,1);
-        doctorList=db.getContact(searchName);
+        doctorList=db.getContact(searchName,searchJob,searchGender);
+        db.close();
         if(doctorList!=null )
         {
-        	for(int i=0;i<doctorList.size();i++)
+        	intent.putExtra("speciality", "None");
+        	intent.putParcelableArrayListExtra("doctor",  (ArrayList<? extends Parcelable>) doctorList);
+        	/*Bundle bun=new Bundle();
+	    	bun.putParcelableArrayList("doctor", (ArrayList<? extends Parcelable>) doctorList);
+	    	intent.putExtras(bun);*/
+	    	Toast.makeText(this, doctorList.get(0).getname(), Toast.LENGTH_SHORT).show();
+	    	this.startActivity(intent);
+        	/*for(int i=0;i<doctorList.size();i++)
         	{
         		if(doctorList.get(i).getjob().equals(searchJob) && 
-        			doctorList.get(i).getgender().equals(searchGender))
+        			doctorList.get(i).getgender().equals(searchGender) && 
+        			doctorList.get(i).getname().equals(searchName))
         		{
         			String speciality=searchJob;
              		String gender=searchGender;
@@ -166,10 +176,11 @@ List<String> names;
                   	intent.putExtra("speciality", speciality);
                   	intent.putExtra("gender", gender);
                   	intent.putExtra("hospital", hosp);
-                  	Toast.makeText(this, searchJob+" "+searchName, Toast.LENGTH_SHORT).show();
+                  	intent.putExtra("name", searchName);
+                  	Toast.makeText(this, speciality+" "+gender+"  "+hosp, Toast.LENGTH_SHORT).show();
                   	startActivity(intent);		        	  		        
         		}        		
-        	}        				                			        	   		        			      
+        	} */       				                			        	   		        			      
         }
         
 	    else
