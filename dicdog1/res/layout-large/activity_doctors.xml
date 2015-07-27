@@ -1,0 +1,141 @@
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.docdig.DoctorsActivity" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="417dp"
+        android:layout_height="55dp"
+        android:layout_x="-30dp"
+        android:layout_y="-6dp"
+        android:background="#FFFFFF" />
+    <TextView
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_x="27dp"
+        android:layout_y="13dp"
+        android:text="     DoctorFinder"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#157DEC"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <ImageView
+        android:id="@+id/main"
+        android:layout_width="67dp"
+        android:layout_height="wrap_content"
+        android:layout_x="-8dp"
+        android:layout_y="4dp"
+        android:src="@drawable/main" />
+   
+    <View
+        android:id="@+id/Viewback"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_y="50dp"
+        android:alpha="1"
+        android:background="@drawable/textv2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="128dp"
+        android:layout_height="31dp"
+        android:layout_x="15dp"
+        android:layout_y="61dp"
+         android:text="Search Doctor By"
+         android:textColor="#FFFFFF"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="218dp"
+        android:layout_height="30dp"
+        android:layout_x="15dp"
+        android:layout_y="90dp"
+        android:textColor="#FFFFFF"
+        android:text="Choose Hospital"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="14dp"
+        android:typeface="sans" />
+
+    <Spinner
+        android:id="@+id/Spinner01"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_x="15dp"
+        android:layout_y="105dp"
+        android:background="@android:drawable/btn_dropdown" />
+    
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="218dp"
+        android:layout_height="30dp"
+        android:layout_x="15dp"
+        android:layout_y="145dp"
+        android:text="What kind of Doctor"
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="14dp"
+        android:typeface="sans" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_x="15dp"
+        android:layout_y="160dp"
+        android:background="@android:drawable/btn_dropdown"
+        
+         />
+
+
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="218dp"
+        android:layout_height="30dp"
+        android:layout_x="15dp"
+        android:layout_y="200dp"
+        android:textColor="#FFFFFF"
+        android:text="Choose Gender"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="14dp"
+        android:typeface="sans" />
+
+    <Spinner
+        android:id="@+id/Spinner02"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_x="15dp"
+        android:layout_y="215dp"
+        android:background="@android:drawable/btn_dropdown" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_x="125dp"
+        android:layout_y="270dp"
+        android:text="Search"
+        android:textColor="#F8FBFB"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:typeface="sans"         
+        android:background="#3391E7"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="43dp"
+        android:layout_height="38dp"
+        android:layout_x="270dp"
+        android:layout_y="3dp"
+        android:background="@drawable/homelogo" />
+
+</AbsoluteLayout>
